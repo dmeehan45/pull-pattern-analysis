@@ -3,6 +3,7 @@
   "title": "PULL Anecdote",
   "type": "object",
   "required": [
+    "schema_version",
     "anecdote_id",
     "actor_id",
     "observed_at",
@@ -16,7 +17,11 @@
     "revision",
     "impact_state",
     "source_ids",
-    "status"
+    "status",
+    "created_at",
+    "updated_at",
+    "updated_by",
+    "revision_note"
   ],
   "properties": {
     "anecdote_id": {
@@ -260,6 +265,13 @@
         "superseded",
         "withdrawn"
       ]
+    },
+    "schema_version": {
+      "const": 1
+    },
+    "revision_note": {
+      "type": "string",
+      "minLength": 1
     }
   },
   "additionalProperties": false
