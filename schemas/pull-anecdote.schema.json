@@ -1,0 +1,177 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "PULL Anecdote",
+  "type": "object",
+  "required": [
+    "anecdote_id",
+    "actor_id",
+    "observed_at",
+    "project",
+    "forcing_condition",
+    "existing_commitment",
+    "current_options",
+    "acceptance_boundary",
+    "observable_next_commitment",
+    "evidence_classification"
+  ],
+  "properties": {
+    "anecdote_id": {
+      "type": "string"
+    },
+    "actor_id": {
+      "type": "string"
+    },
+    "episode_id": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "source_ids": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "observed_at": {
+      "type": "string"
+    },
+    "collection_context": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "selected_for_positive_signal": {
+      "type": [
+        "boolean",
+        "null"
+      ]
+    },
+    "actor_state": {
+      "type": "string"
+    },
+    "project": {
+      "type": "string"
+    },
+    "forcing_condition": {
+      "type": "string"
+    },
+    "time_boundary": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "delay_consequence": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "existing_commitment": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "current_options": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "option",
+          "status"
+        ],
+        "properties": {
+          "option": {
+            "type": "string"
+          },
+          "status": {
+            "enum": [
+              "used",
+              "actively_evaluated",
+              "considered_rejected",
+              "mentioned",
+              "unknown"
+            ]
+          },
+          "limitations": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    },
+    "transaction_path": {
+      "type": "object",
+      "properties": {
+        "approver": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "resource_source": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "approval_steps": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "blockers": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "acceptance_boundary": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "observable_next_commitment": {
+      "type": "string"
+    },
+    "expected_by": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "counterevidence": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "unknowns": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "evidence_classification": {
+      "type": "object",
+      "additionalProperties": {
+        "enum": [
+          "observed",
+          "reported",
+          "inferred",
+          "unknown",
+          "contradicted"
+        ]
+      }
+    }
+  }
+}
