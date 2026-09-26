@@ -1,0 +1,104 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Demand Hypothesis",
+  "type": "object",
+  "required": [
+    "hypothesis_id",
+    "as_of",
+    "actor_segment",
+    "project",
+    "forcing_condition",
+    "existing_commitment",
+    "current_options",
+    "blocking_limitations",
+    "acceptance_boundary",
+    "observable_next_commitment",
+    "falsification_conditions"
+  ],
+  "properties": {
+    "hypothesis_id": {
+      "type": "string"
+    },
+    "as_of": {
+      "type": "string"
+    },
+    "derived_from_pattern_ids": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "actor_segment": {
+      "type": "string"
+    },
+    "project": {
+      "type": "string"
+    },
+    "forcing_condition": {
+      "type": "string"
+    },
+    "time_boundary": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "existing_commitment": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "current_options": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "blocking_limitations": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "transaction_path": {
+      "type": "string"
+    },
+    "acceptance_boundary": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "observable_next_commitment": {
+      "type": "string"
+    },
+    "next_commitment_by": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "falsification_conditions": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "revalidation_conditions": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "evidence_gaps": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "canonical_statement": {
+      "type": "string"
+    }
+  }
+}
