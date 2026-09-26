@@ -3,6 +3,7 @@
   "title": "Demand Hypothesis",
   "type": "object",
   "required": [
+    "schema_version",
     "hypothesis_id",
     "as_of",
     "actor_segment",
@@ -19,7 +20,11 @@
     "status",
     "derived_from_pattern_ids",
     "transaction_path",
-    "canonical_statement"
+    "canonical_statement",
+    "created_at",
+    "updated_at",
+    "updated_by",
+    "revision_note"
   ],
   "properties": {
     "hypothesis_id": {
@@ -189,6 +194,13 @@
         "superseded",
         "stale"
       ]
+    },
+    "schema_version": {
+      "const": 1
+    },
+    "revision_note": {
+      "type": "string",
+      "minLength": 1
     }
   },
   "additionalProperties": false
