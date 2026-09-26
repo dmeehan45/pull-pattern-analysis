@@ -1,0 +1,69 @@
+{
+  "policy_version": 1,
+  "canonical_format": "json",
+  "artifact_types": {
+    "evidence": {
+      "directory": "corpus/evidence",
+      "schema": "schemas/evidence-packet.schema.json",
+      "id_field": "evidence_id",
+      "prefix": "EV-",
+      "max_words": 800
+    },
+    "anecdote": {
+      "directory": "corpus/anecdotes",
+      "schema": "schemas/pull-anecdote.schema.json",
+      "id_field": "anecdote_id",
+      "prefix": "PA-"
+    },
+    "pattern": {
+      "directory": "corpus/patterns",
+      "schema": "schemas/pull-pattern.schema.json",
+      "id_field": "pattern_id",
+      "prefix": "PP-"
+    },
+    "hypothesis": {
+      "directory": "corpus/hypotheses",
+      "schema": "schemas/demand-hypothesis.schema.json",
+      "id_field": "hypothesis_id",
+      "prefix": "DH-"
+    },
+    "falsification": {
+      "directory": "corpus/falsification",
+      "schema": "schemas/falsification-item.schema.json",
+      "id_field": "item_id",
+      "prefix": "FQ-"
+    }
+  },
+  "working_set_limits": {
+    "evidence_packets": 100,
+    "curated_words": 80000,
+    "evidence_packet_excerpts": 12
+  },
+  "protected_framework_paths": [
+    "AGENTS.md",
+    "SYSTEM_RULES.md",
+    "README.md",
+    "docs/",
+    "schemas/",
+    "scripts/",
+    "system/",
+    "templates/",
+    "tests/",
+    ".github/",
+    "requirements-dev.txt",
+    "Makefile",
+    "CONTRIBUTING.md"
+  ],
+  "corpus_allowed_top_level": [
+    "README.md",
+    "AGENTS.md",
+    "INDEX.md",
+    "evidence",
+    "anecdotes",
+    "patterns",
+    "hypotheses",
+    "falsification",
+    "archive"
+  ],
+  "framework_change_label": "framework-change"
+}
