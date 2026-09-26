@@ -29,7 +29,8 @@
       "pattern": "^PA-[0-9]{8}-[A-Za-z0-9]{6,}$"
     },
     "actor_id": {
-      "type": "string"
+      "type": "string",
+      "minLength": 1
     },
     "episode_id": {
       "type": [
@@ -66,10 +67,12 @@
       "type": "string"
     },
     "project": {
-      "type": "string"
+      "type": "string",
+      "minLength": 1
     },
     "forcing_condition": {
-      "type": "string"
+      "type": "string",
+      "minLength": 1
     },
     "time_boundary": {
       "type": [
@@ -157,7 +160,8 @@
       }
     },
     "observable_next_commitment": {
-      "type": "string"
+      "type": "string",
+      "minLength": 1
     },
     "expected_by": {
       "type": [
