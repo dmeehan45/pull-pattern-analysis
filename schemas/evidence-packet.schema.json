@@ -230,6 +230,27 @@
           "target_id"
         ]
       }
+    },
+    "source_fingerprint": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "Optional non-sensitive fingerprint for duplicate detection. Do not derive by embedding confidential source content."
+    },
+    "ingested_at": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "privacy_state": {
+      "enum": [
+        "redacted",
+        "private_approved",
+        "public_safe",
+        "unknown"
+      ]
     }
   }
 }
