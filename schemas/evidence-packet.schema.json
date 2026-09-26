@@ -34,17 +34,20 @@
       "minimum": 1
     },
     "source_reference": {
-      "type": "string"
+      "type": "string",
+      "minLength": 1
     },
     "source_date": {
       "type": "string",
       "format": "date"
     },
     "source_type": {
-      "type": "string"
+      "type": "string",
+      "minLength": 1
     },
     "actor_id": {
-      "type": "string"
+      "type": "string",
+      "minLength": 1
     },
     "organization_id": {
       "type": [
@@ -53,7 +56,8 @@
       ]
     },
     "episode_id": {
-      "type": "string"
+      "type": "string",
+      "minLength": 1
     },
     "preprocessed_by": {
       "type": [
@@ -81,7 +85,8 @@
     },
     "summary": {
       "type": "string",
-      "maxLength": 1600
+      "maxLength": 1600,
+      "minLength": 1
     },
     "excerpts": {
       "type": "array",
