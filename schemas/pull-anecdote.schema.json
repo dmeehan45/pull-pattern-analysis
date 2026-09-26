@@ -12,11 +12,14 @@
     "current_options",
     "acceptance_boundary",
     "observable_next_commitment",
-    "evidence_classification"
+    "evidence_classification",
+    "revision",
+    "impact_state"
   ],
   "properties": {
     "anecdote_id": {
-      "type": "string"
+      "type": "string",
+      "pattern": "^PA-"
     },
     "actor_id": {
       "type": "string"
@@ -31,7 +34,8 @@
       "type": "array",
       "items": {
         "type": "string"
-      }
+      },
+      "description": "Accepted evidence packet IDs (EV-*), not raw source blobs."
     },
     "observed_at": {
       "type": "string"
@@ -172,6 +176,82 @@
           "contradicted"
         ]
       }
+    },
+    "revision": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "created_at": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "updated_at": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "updated_by": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "supersedes": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "impact_state": {
+      "enum": [
+        "current",
+        "needs_review",
+        "stale"
+      ]
+    },
+    "relations": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "enum": [
+              "derived_from",
+              "supports",
+              "contradicts",
+              "qualifies",
+              "duplicates",
+              "same_episode",
+              "supersedes",
+              "split_from",
+              "tests"
+            ]
+          },
+          "target_id": {
+            "type": "string"
+          },
+          "note": {
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        },
+        "required": [
+          "type",
+          "target_id"
+        ]
+      }
+    },
+    "status": {
+      "enum": [
+        "active",
+        "superseded",
+        "withdrawn"
+      ]
     }
   }
 }
