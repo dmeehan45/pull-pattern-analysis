@@ -63,7 +63,8 @@
       "type": "string"
     },
     "recurring_project": {
-      "type": "string"
+      "type": "string",
+      "minLength": 1
     },
     "recurring_forcing_condition": {
       "type": "string"
@@ -114,7 +115,8 @@
       }
     },
     "strongest_rival_explanation": {
-      "type": "string"
+      "type": "string",
+      "minLength": 1
     },
     "falsification_queue_ids": {
       "type": "array",
@@ -124,7 +126,8 @@
       "uniqueItems": true
     },
     "reason_for_state": {
-      "type": "string"
+      "type": "string",
+      "minLength": 1
     },
     "revision": {
       "type": "integer",
