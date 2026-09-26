@@ -1,0 +1,44 @@
+{
+  "hypothesis_id": "DH-20260926-a1b2c3",
+  "as_of": "2026-09-26",
+  "derived_from_pattern_ids": [
+    "PP-20260926-a1b2c3"
+  ],
+  "actor_segment": "Actors in a precisely defined relevant state.",
+  "project": "Product-neutral Project.",
+  "forcing_condition": "Condition activating the Project now.",
+  "time_boundary": "Relevant window.",
+  "existing_commitment": [
+    "Scarce resource expected to already be moving."
+  ],
+  "current_options": [
+    "Current option."
+  ],
+  "blocking_limitations": [
+    "Why current options fail under relevant constraints."
+  ],
+  "transaction_path": "How resources can become an actual transaction.",
+  "acceptance_boundary": [
+    "What a viable new option must accomplish."
+  ],
+  "observable_next_commitment": "Specific behavior predicted if demand is real.",
+  "next_commitment_by": null,
+  "falsification_conditions": [
+    "Observation that would materially weaken or reject the hypothesis."
+  ],
+  "revalidation_conditions": [
+    "Environmental change that should trigger revalidation."
+  ],
+  "evidence_gaps": [
+    "Known remaining gap."
+  ],
+  "canonical_statement": "As of the stated date, we hypothesize that the defined actors will commit scarce resources under the stated conditions; this remains falsifiable by the listed conditions.",
+  "revision": 1,
+  "created_at": "2026-09-26",
+  "updated_at": "2026-09-26",
+  "updated_by": "agent-or-human",
+  "supersedes": null,
+  "impact_state": "current",
+  "relations": [],
+  "status": "candidate"
+}
