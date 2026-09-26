@@ -1,0 +1,55 @@
+{
+  "evidence_id": "EV-20260926-a1b2c3",
+  "revision": 1,
+  "status": "accepted",
+  "source_reference": "external://source-reference",
+  "source_fingerprint": "source-ref-or-nonsensitive-hash",
+  "source_date": "2026-09-26",
+  "source_type": "customer_interview",
+  "actor_id": "actor-example",
+  "organization_id": "org-example",
+  "episode_id": "episode-example",
+  "preprocessed_by": "agent-or-human",
+  "collection_context": "Example only. Replace with how this source entered the sample.",
+  "selected_for_positive_signal": false,
+  "supersedes": null,
+  "ingested_at": "2026-09-26",
+  "privacy_state": "public_safe",
+  "summary": "Compact factual summary of the episode. Do not make a market-level inference here.",
+  "excerpts": [
+    "Short high-signal excerpt preserving the actor's language."
+  ],
+  "observed_actions": [
+    "Concrete observed or reliably reported action."
+  ],
+  "time_information": {
+    "project_became_active": "2026-09",
+    "deadline_or_event": "Example deadline or event",
+    "delay_consequence": "What happens if action is deferred",
+    "forcing_condition_expired": false
+  },
+  "resource_movement": [
+    "Time, money, headcount, attention, or another scarce resource already moving."
+  ],
+  "options": [
+    {
+      "option": "Current workaround",
+      "state": "used",
+      "evidence": "Evidence that this option is actually in use."
+    }
+  ],
+  "transaction_evidence": {
+    "approver": null,
+    "resource_source": null,
+    "approval_path": null,
+    "implementation_requirements": [],
+    "blockers": []
+  },
+  "counterevidence": [
+    "Evidence that weakens the convenient interpretation belongs here."
+  ],
+  "unknowns": [
+    "Material information not yet known."
+  ],
+  "relations": []
+}
