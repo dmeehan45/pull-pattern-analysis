@@ -22,7 +22,11 @@
     "options",
     "relations",
     "ingested_at",
-    "preprocessed_by"
+    "preprocessed_by",
+    "collection_context",
+    "selected_for_positive_signal",
+    "time_information",
+    "transaction_evidence"
   ],
   "properties": {
     "evidence_id": {
@@ -129,7 +133,13 @@
           ]
         }
       },
-      "additionalProperties": false
+      "additionalProperties": false,
+      "required": [
+        "project_became_active",
+        "deadline_or_event",
+        "delay_consequence",
+        "forcing_condition_expired"
+      ]
     },
     "resource_movement": {
       "type": "array",
@@ -202,7 +212,14 @@
           }
         }
       },
-      "additionalProperties": false
+      "additionalProperties": false,
+      "required": [
+        "approver",
+        "resource_source",
+        "approval_path",
+        "implementation_requirements",
+        "blockers"
+      ]
     },
     "counterevidence": {
       "type": "array",
