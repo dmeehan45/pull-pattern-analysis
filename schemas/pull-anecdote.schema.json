@@ -14,12 +14,14 @@
     "observable_next_commitment",
     "evidence_classification",
     "revision",
-    "impact_state"
+    "impact_state",
+    "source_ids",
+    "status"
   ],
   "properties": {
     "anecdote_id": {
       "type": "string",
-      "pattern": "^PA-"
+      "pattern": "^PA-[0-9]{8}-[A-Za-z0-9]{6,}$"
     },
     "actor_id": {
       "type": "string"
@@ -35,10 +37,13 @@
       "items": {
         "type": "string"
       },
-      "description": "Accepted evidence packet IDs (EV-*), not raw source blobs."
+      "description": "Accepted evidence packet IDs (EV-*), not raw source blobs.",
+      "minItems": 1,
+      "uniqueItems": true
     },
     "observed_at": {
-      "type": "string"
+      "type": "string",
+      "format": "date"
     },
     "collection_context": {
       "type": [
@@ -106,7 +111,8 @@
               "type": "string"
             }
           }
-        }
+        },
+        "additionalProperties": false
       }
     },
     "transaction_path": {
@@ -136,7 +142,8 @@
             "type": "string"
           }
         }
-      }
+      },
+      "additionalProperties": false
     },
     "acceptance_boundary": {
       "type": "array",
@@ -243,7 +250,8 @@
         "required": [
           "type",
           "target_id"
-        ]
+        ],
+        "additionalProperties": false
       }
     },
     "status": {
@@ -253,5 +261,6 @@
         "withdrawn"
       ]
     }
-  }
+  },
+  "additionalProperties": false
 }
