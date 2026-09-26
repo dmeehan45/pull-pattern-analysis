@@ -3,6 +3,7 @@
   "title": "PULL Pattern",
   "type": "object",
   "required": [
+    "schema_version",
     "pattern_id",
     "state",
     "supporting_anecdote_ids",
@@ -10,7 +11,11 @@
     "strongest_rival_explanation",
     "falsification_queue_ids",
     "revision",
-    "impact_state"
+    "impact_state",
+    "created_at",
+    "updated_at",
+    "updated_by",
+    "revision_note"
   ],
   "properties": {
     "pattern_id": {
@@ -196,6 +201,13 @@
         "string",
         "null"
       ]
+    },
+    "schema_version": {
+      "const": 1
+    },
+    "revision_note": {
+      "type": "string",
+      "minLength": 1
     }
   },
   "additionalProperties": false
