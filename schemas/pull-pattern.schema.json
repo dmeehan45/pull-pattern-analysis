@@ -8,11 +8,14 @@
     "supporting_anecdote_ids",
     "recurring_project",
     "strongest_rival_explanation",
-    "falsification_queue_ids"
+    "falsification_queue_ids",
+    "revision",
+    "impact_state"
   ],
   "properties": {
     "pattern_id": {
-      "type": "string"
+      "type": "string",
+      "pattern": "^PP-"
     },
     "name": {
       "type": "string"
@@ -113,6 +116,81 @@
     },
     "reason_for_state": {
       "type": "string"
+    },
+    "revision": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "created_at": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "updated_at": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "updated_by": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "supersedes": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "impact_state": {
+      "enum": [
+        "current",
+        "needs_review",
+        "stale"
+      ]
+    },
+    "relations": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "enum": [
+              "derived_from",
+              "supports",
+              "contradicts",
+              "qualifies",
+              "duplicates",
+              "same_episode",
+              "supersedes",
+              "split_from",
+              "tests"
+            ]
+          },
+          "target_id": {
+            "type": "string"
+          },
+          "note": {
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        },
+        "required": [
+          "type",
+          "target_id"
+        ]
+      }
+    },
+    "status_note": {
+      "type": [
+        "string",
+        "null"
+      ]
     }
   }
 }
