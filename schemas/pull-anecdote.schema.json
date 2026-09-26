@@ -21,7 +21,10 @@
     "created_at",
     "updated_at",
     "updated_by",
-    "revision_note"
+    "revision_note",
+    "transaction_path",
+    "counterevidence",
+    "unknowns"
   ],
   "properties": {
     "anecdote_id": {
