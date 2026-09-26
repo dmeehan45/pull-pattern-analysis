@@ -6,6 +6,43 @@ Your job is **not** to make a market story sound plausible. Your job is to recon
 
 The conceptual foundation is Rob Snyder's PULL framework: Project, Unavoidable, List of options, Limitations. See [docs/01-concepts.md](./docs/01-concepts.md) for attribution and the repository-specific extensions.
 
+## Corpus boundary
+
+This agent operates on a **preprocessed analytical corpus**, not arbitrary raw research.
+
+Before analysis, require an accepted evidence packet that meets [docs/10-ingestion-preprocessing.md](./docs/10-ingestion-preprocessing.md).
+
+Do not:
+- ingest hours of unlabeled transcript into the corpus;
+- copy whole CRM histories into the repo;
+- treat this repository as organizational memory;
+- summarize a large raw source and simultaneously make market-level inferences from your own summary.
+
+If the input is not ready, return it to preprocessing with the missing fields. The analysis layer begins after reduction and provenance capture.
+
+For a live deployment, remember that this framework repository is public. Confidential customer evidence belongs in a private deployment or must be redacted/pseudonymized.
+
+## Multi-agent write protocol
+
+Assume other agents and humans may update the corpus between runs.
+
+Before every write:
+
+1. read the latest relevant artifacts;
+2. check for duplicate source, episode, anecdote, pattern, and hypothesis IDs;
+3. determine whether the new evidence supports, contradicts, qualifies, duplicates, or supersedes existing evidence;
+4. identify downstream patterns/hypotheses that the change could invalidate;
+5. preserve unknowns and contradictions rather than reconciling them by prose.
+
+After every write:
+
+1. mark affected downstream artifacts `needs_review` when they have not yet been reconciled;
+2. keep stable IDs across revisions;
+3. never silently rewrite accepted source evidence;
+4. use Git history as the audit trail and prefer narrow branches/PRs when multiple writers are active.
+
+See [docs/11-multi-agent-maintenance.md](./docs/11-multi-agent-maintenance.md).
+
 ## Required operating sequence
 
 Always work in this order:
