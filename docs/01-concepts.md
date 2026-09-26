@@ -26,6 +26,17 @@ Primary sources:
 
 The concepts below are extensions developed here for operational analysis. They should not be attributed to Snyder unless a source explicitly supports them.
 
+### Terminology note: "PULL hypothesis"
+
+This repository does **not** use `PULL hypothesis` as a current artifact type.
+
+Snyder used the term historically and later argued for starting from real PULL anecdotes instead of invented PULL hypotheses. If an incoming note or teammate uses "PULL hypothesis," normalize the intended meaning to one of:
+
+- **candidate PULL pattern** — if it means "we think this structure may recur"; or
+- **demand hypothesis** — if it makes a predictive claim about future resource commitment.
+
+Do not create a fourth object merely because the phrase appears in source material.
+
 ### PULL anecdote
 
 A time-stamped record of one real actor exhibiting, or potentially exhibiting, PULL.
