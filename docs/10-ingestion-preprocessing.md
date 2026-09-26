@@ -24,6 +24,7 @@ Every evidence packet must contain enough information for another agent to evalu
 Include:
 - evidence packet ID;
 - external source reference;
+- source fingerprint when practical;
 - source date;
 - source type/channel;
 - actor ID;
@@ -42,6 +43,8 @@ In <= 200 words, describe:
 - what action occurred.
 
 Do not turn this into a market interpretation.
+
+The external source reference and optional fingerprint are used for duplicate detection. A fingerprint should identify the source or episode; it should not embed sensitive customer content.
 
 ### 3. High-signal evidence excerpts
 
