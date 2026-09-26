@@ -16,21 +16,27 @@
     "falsification_conditions",
     "revision",
     "impact_state",
-    "status"
+    "status",
+    "derived_from_pattern_ids",
+    "transaction_path",
+    "canonical_statement"
   ],
   "properties": {
     "hypothesis_id": {
       "type": "string",
-      "pattern": "^DH-"
+      "pattern": "^DH-[0-9]{8}-[A-Za-z0-9]{6,}$"
     },
     "as_of": {
-      "type": "string"
+      "type": "string",
+      "format": "date"
     },
     "derived_from_pattern_ids": {
       "type": "array",
       "items": {
         "type": "string"
-      }
+      },
+      "minItems": 1,
+      "uniqueItems": true
     },
     "actor_segment": {
       "type": "string"
@@ -170,7 +176,8 @@
         "required": [
           "type",
           "target_id"
-        ]
+        ],
+        "additionalProperties": false
       }
     },
     "status": {
@@ -183,5 +190,6 @@
         "stale"
       ]
     }
-  }
+  },
+  "additionalProperties": false
 }
