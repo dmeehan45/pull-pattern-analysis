@@ -13,12 +13,18 @@
     "summary",
     "observed_actions",
     "counterevidence",
-    "unknowns"
+    "unknowns",
+    "status",
+    "privacy_state",
+    "excerpts",
+    "resource_movement",
+    "options",
+    "relations"
   ],
   "properties": {
     "evidence_id": {
       "type": "string",
-      "pattern": "^EV-"
+      "pattern": "^EV-[0-9]{8}-[A-Za-z0-9]{6,}$"
     },
     "revision": {
       "type": "integer",
@@ -28,7 +34,8 @@
       "type": "string"
     },
     "source_date": {
-      "type": "string"
+      "type": "string",
+      "format": "date"
     },
     "source_type": {
       "type": "string"
@@ -70,7 +77,8 @@
       ]
     },
     "summary": {
-      "type": "string"
+      "type": "string",
+      "maxLength": 1600
     },
     "excerpts": {
       "type": "array",
@@ -112,7 +120,8 @@
             "null"
           ]
         }
-      }
+      },
+      "additionalProperties": false
     },
     "resource_movement": {
       "type": "array",
@@ -147,7 +156,8 @@
         "required": [
           "option",
           "state"
-        ]
+        ],
+        "additionalProperties": false
       }
     },
     "transaction_evidence": {
@@ -183,7 +193,8 @@
             "type": "string"
           }
         }
-      }
+      },
+      "additionalProperties": false
     },
     "counterevidence": {
       "type": "array",
@@ -228,7 +239,8 @@
         "required": [
           "type",
           "target_id"
-        ]
+        ],
+        "additionalProperties": false
       }
     },
     "source_fingerprint": {
@@ -251,6 +263,14 @@
         "public_safe",
         "unknown"
       ]
+    },
+    "status": {
+      "enum": [
+        "accepted",
+        "superseded",
+        "withdrawn"
+      ]
     }
-  }
+  },
+  "additionalProperties": false
 }
