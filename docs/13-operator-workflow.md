@@ -47,9 +47,17 @@ Check:
 
 One accepted EV artifact, or a duplicate/supersession/preprocessing decision.
 
-## 2. Evidence becomes or updates a PULL anecdote
+## 2. Evidence may become or update a PULL anecdote
 
-Ask whether the evidence belongs to an existing:
+Not every evidence packet deserves an anecdote.
+
+If the packet does not establish enough of an actor + product-neutral Project + active time window to support a useful anecdote, leave the EV artifact in the corpus, preserve its unknowns, and return:
+
+`ANECDOTE_NOT_READY`
+
+Do not manufacture a PULL anecdote merely to keep the pipeline moving.
+
+If an anecdote is warranted, ask whether the evidence belongs to an existing:
 
 **actor + Project + active time window**
 
@@ -162,6 +170,7 @@ An agent should stop instead of improvising when it reaches:
 - `NEEDS_PREPROCESSING` — input is too raw.
 - `DUPLICATE_SOURCE` — evidence appears already represented.
 - `AMBIGUOUS_EPISODE` — cannot determine whether evidence belongs to an existing episode.
+- `ANECDOTE_NOT_READY` — evidence is valid but does not yet support a useful PULL anecdote.
 - `CONFLICT_REQUIRES_REVIEW` — evidence materially contradicts an active interpretation and cannot be reconciled safely.
 - `PATTERN_NOT_READY` — recurrence is plausible but has not survived challenge.
 - `HYPOTHESIS_NOT_READY` — pattern or transaction evidence is insufficient.
