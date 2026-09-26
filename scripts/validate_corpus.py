@@ -149,6 +149,9 @@ def main():
             if not artifact_id:
                 continue
 
+            if artifact_id in set(policy.get("reserved_example_ids", [])):
+                report.error("E035", f"{artifact_id} is a reserved template/example ID; generate a new collision-resistant ID")
+
             if artifact_id in records:
                 report.error("E008", f"duplicate artifact ID {artifact_id}: {p.relative_to(root)} and {paths_by_id[artifact_id].relative_to(root)}")
             else:
