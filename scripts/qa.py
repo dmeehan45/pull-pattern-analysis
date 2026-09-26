@@ -5,6 +5,7 @@ import sys
 
 COMMANDS = [
     [sys.executable, "-m", "py_compile", "scripts/validate_corpus.py", "scripts/generate_index.py", "scripts/validate_change_set.py"],
+    [sys.executable, "-m", "unittest", "discover", "-s", "tests", "-v"],
     [sys.executable, "scripts/validate_corpus.py", "--root", "."],
     [sys.executable, "scripts/generate_index.py", "--root", ".", "--check"],
 ]
