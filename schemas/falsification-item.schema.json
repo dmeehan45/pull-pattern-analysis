@@ -3,6 +3,7 @@
   "title": "Falsification Queue Item",
   "type": "object",
   "required": [
+    "schema_version",
     "item_id",
     "pattern_id",
     "target_uncertainty",
@@ -14,7 +15,11 @@
     "priority_rationale",
     "revision",
     "impact_state",
-    "status"
+    "status",
+    "created_at",
+    "updated_at",
+    "updated_by",
+    "revision_note"
   ],
   "properties": {
     "item_id": {
@@ -131,6 +136,13 @@
         ],
         "additionalProperties": false
       }
+    },
+    "schema_version": {
+      "const": 1
+    },
+    "revision_note": {
+      "type": "string",
+      "minLength": 1
     }
   },
   "additionalProperties": false
