@@ -1,0 +1,118 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "PULL Pattern",
+  "type": "object",
+  "required": [
+    "pattern_id",
+    "state",
+    "supporting_anecdote_ids",
+    "recurring_project",
+    "strongest_rival_explanation",
+    "falsification_queue_ids"
+  ],
+  "properties": {
+    "pattern_id": {
+      "type": "string"
+    },
+    "name": {
+      "type": "string"
+    },
+    "state": {
+      "enum": [
+        "candidate",
+        "challenged",
+        "supported",
+        "split",
+        "rejected",
+        "stale"
+      ]
+    },
+    "supporting_anecdote_ids": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "negative_case_ids": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "dependent_case_groups": {
+      "type": "array",
+      "items": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        }
+      }
+    },
+    "recurring_actor_state": {
+      "type": "string"
+    },
+    "recurring_project": {
+      "type": "string"
+    },
+    "recurring_forcing_condition": {
+      "type": "string"
+    },
+    "recurring_commitment": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "recurring_options": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "recurring_limitations": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "recurring_transaction_path": {
+      "type": "string"
+    },
+    "recurring_acceptance_boundary": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "boundary_conditions": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "counterexamples": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "selection_risks": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "strongest_rival_explanation": {
+      "type": "string"
+    },
+    "falsification_queue_ids": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "reason_for_state": {
+      "type": "string"
+    }
+  }
+}
