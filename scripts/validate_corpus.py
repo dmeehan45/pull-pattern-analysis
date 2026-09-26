@@ -18,7 +18,7 @@ from datetime import date
 from pathlib import Path
 
 try:
-    from jsonschema import Draft202012Validator
+    from jsonschema import Draft202012Validator, FormatChecker
 except ImportError:
     print("ERROR E000: jsonschema is not installed. Run: pip install -r requirements-dev.txt")
     sys.exit(2)
@@ -139,7 +139,7 @@ def main():
                 continue
 
             if kind in schemas:
-                validator = Draft202012Validator(schemas[kind])
+                validator = Draft202012Validator(schemas[kind], format_checker=FormatChecker())
                 for err in sorted(validator.iter_errors(obj), key=lambda e: list(e.absolute_path)):
                     where = ".".join(str(x) for x in err.absolute_path) or "<root>"
                     report.error("E007", f"{p.relative_to(root)} schema violation at {where}: {err.message}")
@@ -169,9 +169,9 @@ def main():
                     report.error("E011", f"{artifact_id} has ~{packet_words} words; limit is {cfg.get('max_words', 800)}")
                 if len(obj.get("excerpts", [])) > policy["working_set_limits"]["evidence_packet_excerpts"]:
                     report.error("E012", f"{artifact_id} has too many excerpts")
-            else:
-                curated_words += words(obj)
-
+    # Working-set word budget is intentionally based on curated evidence,
+    # not downstream interpretations.
+    
     # Include archived IDs so historical links stay resolvable.
     archive = corpus / "archive"
     if archive.exists():
