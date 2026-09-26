@@ -26,11 +26,25 @@ This repository extends that thinking into an operational system for product and
 
 See [docs/00-origin-story.md](./docs/00-origin-story.md) for the fuller account and the design implications it creates.
 
+## Start here
+
+For an agent or teammate using the system rather than changing it:
+
+1. Read [SYSTEM_RULES.md](./SYSTEM_RULES.md).
+2. Follow [docs/13-operator-workflow.md](./docs/13-operator-workflow.md).
+3. Reduce raw research into an [evidence packet](./templates/evidence-packet.json) before it enters the live corpus.
+4. Write canonical JSON artifacts under `corpus/`.
+5. Run `make index && make qa` before the change is complete.
+
+The [generated corpus index](./corpus/INDEX.md) is the navigation surface; canonical truth remains in the individual JSON artifacts.
+
 ## Core flow
 
 ```text
 raw customer evidence
-        ↓
+        ↓ preprocessing
+evidence packets
+        ↓ interpretation
 PULL anecdotes
         ↓
 candidate PULL patterns
@@ -150,6 +164,8 @@ The output is not merely "more research questions." It is a **falsification queu
 - [docs/10-ingestion-preprocessing.md](./docs/10-ingestion-preprocessing.md) — minimum preprocessing gate
 - [docs/11-multi-agent-maintenance.md](./docs/11-multi-agent-maintenance.md) — concurrency, revisions, and conflict propagation
 - [docs/12-openspec-explore-handoff.md](./docs/12-openspec-explore-handoff.md) — demand-to-Explore handoff
+- [docs/13-operator-workflow.md](./docs/13-operator-workflow.md) — bounded end-to-end operator flow and stop states
+- [docs/14-validation-and-error-states.md](./docs/14-validation-and-error-states.md) — mechanical enforcement and recovery
 - [templates/](./templates/) — evidence packet and Explore handoff templates
 - [schemas/](./schemas/) — machine-readable artifacts
 
