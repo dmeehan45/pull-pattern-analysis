@@ -243,6 +243,13 @@ def main():
             for dh_ref in dh_refs:
                 if dh_ref not in records:
                     report.error("E031", f"{p.relative_to(root)} references missing demand hypothesis {dh_ref}")
+                    continue
+                dh_obj = records_by_kind["hypothesis"].get(dh_ref)
+                if dh_obj and (
+                    dh_obj.get("impact_state") != "current"
+                    or dh_obj.get("status") in {"rejected", "superseded", "stale"}
+                ):
+                    report.error("E034", f"{p.relative_to(root)} references demand hypothesis {dh_ref} that is not current/usable")
             pp_refs = set(re.findall(r"PP-[0-9]{8}-[A-Za-z0-9]{6,}", text_value))
             for pp_ref in pp_refs:
                 if pp_ref not in records:
