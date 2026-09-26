@@ -15,7 +15,18 @@
     "created_at",
     "updated_at",
     "updated_by",
-    "revision_note"
+    "revision_note",
+    "recurring_actor_state",
+    "recurring_forcing_condition",
+    "recurring_commitment",
+    "recurring_options",
+    "recurring_limitations",
+    "recurring_transaction_path",
+    "recurring_acceptance_boundary",
+    "boundary_conditions",
+    "counterexamples",
+    "selection_risks",
+    "reason_for_state"
   ],
   "properties": {
     "pattern_id": {
