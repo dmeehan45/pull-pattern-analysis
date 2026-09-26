@@ -243,6 +243,10 @@ def main():
             for dh_ref in dh_refs:
                 if dh_ref not in records:
                     report.error("E031", f"{p.relative_to(root)} references missing demand hypothesis {dh_ref}")
+            pp_refs = set(re.findall(r"PP-[0-9]{8}-[A-Za-z0-9]{6,}", text_value))
+            for pp_ref in pp_refs:
+                if pp_ref not in records:
+                    report.error("E033", f"{p.relative_to(root)} references missing PULL pattern {pp_ref}")
 
     def require_ref(owner_id, target_id, expected_prefix, field):
         if not target_id:
@@ -260,6 +264,11 @@ def main():
                 if target and target not in records:
                     report.error("E020", f"{artifact_id} relation {rel.get('type')} points to missing {target}")
 
+            supersedes = obj.get("supersedes")
+            if supersedes:
+                expected_prefix = artifact_id.split("-", 1)[0] + "-"
+                require_ref(artifact_id, supersedes, expected_prefix, "supersedes")
+
             if kind == "anecdote":
                 for target in obj.get("source_ids", []):
                     require_ref(artifact_id, target, "EV-", "source_ids")
@@ -270,6 +279,9 @@ def main():
                     require_ref(artifact_id, target, "PA-", "negative_case_ids")
                 for target in obj.get("falsification_queue_ids", []):
                     require_ref(artifact_id, target, "FQ-", "falsification_queue_ids")
+                for group in obj.get("dependent_case_groups", []):
+                    for target in group:
+                        require_ref(artifact_id, target, "PA-", "dependent_case_groups")
             elif kind == "hypothesis":
                 for target in obj.get("derived_from_pattern_ids", []):
                     require_ref(artifact_id, target, "PP-", "derived_from_pattern_ids")
@@ -289,6 +301,10 @@ def main():
                 pa = records_by_kind["anecdote"].get(pa_id)
                 if pa and pa.get("impact_state") in {"needs_review", "stale"}:
                     report.error("E023", f"{pattern_id} is current but linked anecdote {pa_id} is {pa.get('impact_state')}")
+            for fq_id in pattern.get("falsification_queue_ids", []):
+                fq = records_by_kind["falsification"].get(fq_id)
+                if fq and fq.get("impact_state") in {"needs_review", "stale"}:
+                    report.error("E032", f"{pattern_id} is current but linked falsification item {fq_id} is {fq.get('impact_state')}")
 
     for dh_id, dh in records_by_kind["hypothesis"].items():
         if dh.get("impact_state") == "current":
