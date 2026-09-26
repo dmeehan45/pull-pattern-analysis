@@ -29,6 +29,18 @@ class EndToEndWorkflowTests(unittest.TestCase):
         fq = load(ROOT / "templates/falsification-item.json")
         dh = load(ROOT / "templates/demand-hypothesis.json")
 
+        # Use non-template IDs so the fixture exercises the live-corpus guard too.
+        ev["evidence_id"] = "EV-20260926-ff0001"
+        pa["anecdote_id"] = "PA-20260926-ff0002"
+        pa["source_ids"] = [ev["evidence_id"]]
+        pp["pattern_id"] = "PP-20260926-ff0003"
+        pp["supporting_anecdote_ids"] = [pa["anecdote_id"]]
+        pp["falsification_queue_ids"] = ["FQ-20260926-ff0004"]
+        fq["item_id"] = "FQ-20260926-ff0004"
+        fq["pattern_id"] = pp["pattern_id"]
+        dh["hypothesis_id"] = "DH-20260926-ff0005"
+        dh["derived_from_pattern_ids"] = [pp["pattern_id"]]
+
         # Exercise the actual promotion gate.
         pp["state"] = "supported"
         pp["reason_for_state"] = "Synthetic fixture survived one resolved falsification test."
@@ -78,14 +90,14 @@ class EndToEndWorkflowTests(unittest.TestCase):
             )
             self.assertEqual(0, check.returncode, check.stdout + check.stderr)
             index = (temp_root / "corpus/INDEX.md").read_text(encoding="utf-8")
-            self.assertIn("EV-20260926-a1b2c3", index)
-            self.assertIn("DH-20260926-a1b2c3", index)
+            self.assertIn("EV-20260926-ff0001", index)
+            self.assertIn("DH-20260926-ff0005", index)
 
     def test_demand_hypothesis_cannot_precede_supported_pattern(self):
         with tempfile.TemporaryDirectory() as td:
             temp_root = Path(td)
             policy, _ = self.build_repo(temp_root)
-            pp_path = temp_root / policy["artifact_types"]["pattern"]["directory"] / "PP-20260926-a1b2c3.json"
+            pp_path = temp_root / policy["artifact_types"]["pattern"]["directory"] / "PP-20260926-ff0003.json"
             pp = load(pp_path)
             pp["state"] = "candidate"
             pp_path.write_text(json.dumps(pp, indent=2), encoding="utf-8")
