@@ -15,7 +15,7 @@
   "properties": {
     "pattern_id": {
       "type": "string",
-      "pattern": "^PP-"
+      "pattern": "^PP-[0-9]{8}-[A-Za-z0-9]{6,}$"
     },
     "name": {
       "type": "string"
@@ -34,13 +34,16 @@
       "type": "array",
       "items": {
         "type": "string"
-      }
+      },
+      "minItems": 1,
+      "uniqueItems": true
     },
     "negative_case_ids": {
       "type": "array",
       "items": {
         "type": "string"
-      }
+      },
+      "uniqueItems": true
     },
     "dependent_case_groups": {
       "type": "array",
@@ -112,7 +115,8 @@
       "type": "array",
       "items": {
         "type": "string"
-      }
+      },
+      "uniqueItems": true
     },
     "reason_for_state": {
       "type": "string"
@@ -183,7 +187,8 @@
         "required": [
           "type",
           "target_id"
-        ]
+        ],
+        "additionalProperties": false
       }
     },
     "status_note": {
@@ -192,5 +197,6 @@
         "null"
       ]
     }
-  }
+  },
+  "additionalProperties": false
 }
