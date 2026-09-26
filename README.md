@@ -4,6 +4,28 @@ An operational framework for turning raw customer evidence into **PULL anecdotes
 
 This repository is designed to back an analysis agent used by product teams and founding teams working from interviews, sales calls, support conversations, field notes, CRM records, emails, transcripts, and other raw customer inputs.
 
+## Why this exists
+
+This framework grew out of a failure to falsify demand quickly enough while building **SupplierKit**.
+
+We collected a large number of positive anecdotes. Prospects consistently told us the idea was useful, that the problem was real, and that the product would help them. The feedback created a strong sense that we were validating the opportunity.
+
+What we had actually validated was much narrower: people could see value in the idea.
+
+We had **not** validated the buying shape quickly enough. We did not establish, early enough, whether the problem became an active project with resources attached, whether the intended buyer could transact through the budget and approval path we assumed, or whether our solution could cross the acceptance boundary required to cause a real buying motion.
+
+By the time we understood that the mechanism for selling the product into the target budget did not work as expected, we had already built much more than the evidence justified.
+
+That experience produced the core bias this repository is designed to resist:
+
+> **Positive anecdotes are easy to accumulate when an idea sounds useful. They are not the same thing as evidence that demand can become a transaction.**
+
+Rob Snyder's work on PULL provided a better language for understanding what had been missing: a real Project, made Unavoidable now, with an actual List of options whose Limitations are consequential enough to create movement.
+
+This repository extends that thinking into an operational system for product and founding teams. The goal is not just to recognize PULL after the fact. It is to structure customer evidence so an agent can continuously ask what would falsify an emerging pattern **before** the team commits substantial product, sales, or organizational resources to it.
+
+See [docs/00-origin-story.md](./docs/00-origin-story.md) for the fuller account and the design implications it creates.
+
 ## Core flow
 
 ```text
