@@ -11,11 +11,14 @@
     "collection_action",
     "supporting_result",
     "disconfirming_result",
-    "priority_rationale"
+    "priority_rationale",
+    "revision",
+    "impact_state"
   ],
   "properties": {
     "item_id": {
-      "type": "string"
+      "type": "string",
+      "pattern": "^FQ-"
     },
     "pattern_id": {
       "type": "string"
@@ -57,6 +60,75 @@
         "string",
         "null"
       ]
+    },
+    "revision": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "created_at": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "updated_at": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "updated_by": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "supersedes": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "impact_state": {
+      "enum": [
+        "current",
+        "needs_review",
+        "stale"
+      ]
+    },
+    "relations": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "enum": [
+              "derived_from",
+              "supports",
+              "contradicts",
+              "qualifies",
+              "duplicates",
+              "same_episode",
+              "supersedes",
+              "split_from",
+              "tests"
+            ]
+          },
+          "target_id": {
+            "type": "string"
+          },
+          "note": {
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        },
+        "required": [
+          "type",
+          "target_id"
+        ]
+      }
     }
   }
 }
