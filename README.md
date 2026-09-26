@@ -166,6 +166,7 @@ The output is not merely "more research questions." It is a **falsification queu
 - [docs/12-openspec-explore-handoff.md](./docs/12-openspec-explore-handoff.md) — demand-to-Explore handoff
 - [docs/13-operator-workflow.md](./docs/13-operator-workflow.md) — bounded end-to-end operator flow and stop states
 - [docs/14-validation-and-error-states.md](./docs/14-validation-and-error-states.md) — mechanical enforcement and recovery
+- [docs/15-workflow-qa.md](./docs/15-workflow-qa.md) — end-to-end QA and remaining repository hardening boundary
 - [templates/](./templates/) — evidence packet and Explore handoff templates
 - [schemas/](./schemas/) — machine-readable artifacts
 
