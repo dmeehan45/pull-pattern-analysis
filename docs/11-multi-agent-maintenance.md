@@ -73,9 +73,15 @@ Recommended prefixes:
 - `DH-` demand hypothesis;
 - `FQ-` falsification item.
 
-IDs should remain stable across revisions.
+Do not use a shared sequential counter; concurrent agents will collide.
 
-Human-readable titles can change.
+Prefer collision-resistant IDs such as:
+
+`PA-20260926-a1b2c3`
+
+where the suffix is a short UUID/hash generated at creation time.
+
+IDs should remain stable across revisions. Human-readable titles can change.
 
 ## Required relations
 
