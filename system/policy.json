@@ -67,5 +67,12 @@
     "archive"
   ],
   "framework_change_label": "framework-change",
-  "deployment_mode": "public_framework"
+  "deployment_mode": "public_framework",
+  "reserved_example_ids": [
+    "EV-20260926-a1b2c3",
+    "PA-20260926-a1b2c3",
+    "PP-20260926-a1b2c3",
+    "FQ-20260926-a1b2c3",
+    "DH-20260926-a1b2c3"
+  ]
 }
