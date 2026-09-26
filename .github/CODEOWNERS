@@ -1,0 +1,14 @@
+# Framework files require owner review when branch protection enables CODEOWNERS reviews.
+/AGENTS.md @dmeehan45
+/SYSTEM_RULES.md @dmeehan45
+/README.md @dmeehan45
+/docs/ @dmeehan45
+/schemas/ @dmeehan45
+/scripts/ @dmeehan45
+/system/ @dmeehan45
+/templates/ @dmeehan45
+/tests/ @dmeehan45
+/.github/ @dmeehan45
+/Makefile @dmeehan45
+/requirements-dev.txt @dmeehan45
+/CONTRIBUTING.md @dmeehan45
