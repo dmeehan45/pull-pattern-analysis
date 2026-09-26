@@ -44,13 +44,16 @@
       "uniqueItems": true
     },
     "actor_segment": {
-      "type": "string"
+      "type": "string",
+      "minLength": 1
     },
     "project": {
-      "type": "string"
+      "type": "string",
+      "minLength": 1
     },
     "forcing_condition": {
-      "type": "string"
+      "type": "string",
+      "minLength": 1
     },
     "time_boundary": {
       "type": [
@@ -77,7 +80,8 @@
       }
     },
     "transaction_path": {
-      "type": "string"
+      "type": "string",
+      "minLength": 1
     },
     "acceptance_boundary": {
       "type": "array",
@@ -86,7 +90,8 @@
       }
     },
     "observable_next_commitment": {
-      "type": "string"
+      "type": "string",
+      "minLength": 1
     },
     "next_commitment_by": {
       "type": [
@@ -113,7 +118,8 @@
       }
     },
     "canonical_statement": {
-      "type": "string"
+      "type": "string",
+      "minLength": 1
     },
     "revision": {
       "type": "integer",
