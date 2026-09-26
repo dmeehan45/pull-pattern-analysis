@@ -1,0 +1,46 @@
+{
+  "pattern_id": "PP-20260926-a1b2c3",
+  "name": "Example candidate pattern",
+  "state": "candidate",
+  "supporting_anecdote_ids": [
+    "PA-20260926-a1b2c3"
+  ],
+  "negative_case_ids": [],
+  "dependent_case_groups": [],
+  "recurring_actor_state": "State that may recur.",
+  "recurring_project": "Project that may recur.",
+  "recurring_forcing_condition": "Forcing condition that may recur.",
+  "recurring_commitment": [
+    "Commitment behavior that may recur."
+  ],
+  "recurring_options": [
+    "Common option."
+  ],
+  "recurring_limitations": [
+    "Common limitation."
+  ],
+  "recurring_transaction_path": "Current understanding of how resources could move.",
+  "recurring_acceptance_boundary": [
+    "Boundary a new option appears to need to cross."
+  ],
+  "boundary_conditions": [
+    "Conditions under which the pattern appears to hold."
+  ],
+  "counterexamples": [],
+  "selection_risks": [
+    "Known selection risk."
+  ],
+  "strongest_rival_explanation": "Best competing explanation for the same observations.",
+  "falsification_queue_ids": [
+    "FQ-20260926-a1b2c3"
+  ],
+  "reason_for_state": "Candidate until the rival explanation is tested.",
+  "revision": 1,
+  "created_at": "2026-09-26",
+  "updated_at": "2026-09-26",
+  "updated_by": "agent-or-human",
+  "supersedes": null,
+  "impact_state": "current",
+  "relations": [],
+  "status_note": null
+}
