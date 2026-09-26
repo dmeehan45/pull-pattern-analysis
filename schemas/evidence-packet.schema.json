@@ -3,6 +3,7 @@
   "title": "Evidence Packet",
   "type": "object",
   "required": [
+    "schema_version",
     "evidence_id",
     "revision",
     "source_reference",
@@ -19,7 +20,9 @@
     "excerpts",
     "resource_movement",
     "options",
-    "relations"
+    "relations",
+    "ingested_at",
+    "preprocessed_by"
   ],
   "properties": {
     "evidence_id": {
@@ -270,6 +273,9 @@
         "superseded",
         "withdrawn"
       ]
+    },
+    "schema_version": {
+      "const": 1
     }
   },
   "additionalProperties": false
