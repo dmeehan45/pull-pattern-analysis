@@ -1,4 +1,5 @@
 {
+  "schema_version": 1,
   "item_id": "FQ-20260926-a1b2c3",
   "pattern_id": "PP-20260926-a1b2c3",
   "target_uncertainty": "Uncertainty that could materially change the pattern.",
@@ -17,5 +18,6 @@
   "updated_by": "agent-or-human",
   "supersedes": null,
   "impact_state": "current",
-  "relations": []
+  "relations": [],
+  "revision_note": "Initial creation."
 }
