@@ -146,6 +146,12 @@ def main():
             if not isinstance(old_rev, int) or new_rev != old_rev + 1:
                 errors.append(f"C009 modified artifact {old_id} must increment revision exactly once ({old_rev} -> {old_rev + 1 if isinstance(old_rev, int) else '?'})")
 
+            if cfg["prefix"] != "EV-":
+                old_note = base_obj.get("revision_note")
+                new_note = head_obj.get("revision_note")
+                if not new_note or new_note == old_note:
+                    errors.append(f"C010 modified artifact {old_id} must provide a new non-empty revision_note")
+
     if errors:
         for error in errors:
             print("ERROR", error)
