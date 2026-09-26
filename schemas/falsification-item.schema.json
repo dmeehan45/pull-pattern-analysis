@@ -1,0 +1,62 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Falsification Queue Item",
+  "type": "object",
+  "required": [
+    "item_id",
+    "pattern_id",
+    "target_uncertainty",
+    "pattern_claim_at_risk",
+    "evidence_source",
+    "collection_action",
+    "supporting_result",
+    "disconfirming_result",
+    "priority_rationale"
+  ],
+  "properties": {
+    "item_id": {
+      "type": "string"
+    },
+    "pattern_id": {
+      "type": "string"
+    },
+    "target_uncertainty": {
+      "type": "string"
+    },
+    "pattern_claim_at_risk": {
+      "type": "string"
+    },
+    "evidence_source": {
+      "type": "string"
+    },
+    "collection_action": {
+      "type": "string"
+    },
+    "supporting_result": {
+      "type": "string"
+    },
+    "disconfirming_result": {
+      "type": "string"
+    },
+    "sampling_instruction": {
+      "type": "string"
+    },
+    "priority_rationale": {
+      "type": "string"
+    },
+    "status": {
+      "enum": [
+        "queued",
+        "collecting",
+        "resolved",
+        "blocked"
+      ]
+    },
+    "resolution": {
+      "type": [
+        "string",
+        "null"
+      ]
+    }
+  }
+}
