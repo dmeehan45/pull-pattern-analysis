@@ -1,4 +1,5 @@
 {
+  "schema_version": 1,
   "pattern_id": "PP-20260926-a1b2c3",
   "name": "Example candidate pattern",
   "state": "candidate",
@@ -42,5 +43,6 @@
   "supersedes": null,
   "impact_state": "current",
   "relations": [],
-  "status_note": null
+  "status_note": null,
+  "revision_note": "Initial creation."
 }
