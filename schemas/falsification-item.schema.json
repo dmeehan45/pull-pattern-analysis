@@ -27,31 +27,39 @@
       "pattern": "^FQ-[0-9]{8}-[A-Za-z0-9]{6,}$"
     },
     "pattern_id": {
-      "type": "string"
+      "type": "string",
+      "minLength": 1
     },
     "target_uncertainty": {
-      "type": "string"
+      "type": "string",
+      "minLength": 1
     },
     "pattern_claim_at_risk": {
-      "type": "string"
+      "type": "string",
+      "minLength": 1
     },
     "evidence_source": {
-      "type": "string"
+      "type": "string",
+      "minLength": 1
     },
     "collection_action": {
-      "type": "string"
+      "type": "string",
+      "minLength": 1
     },
     "supporting_result": {
-      "type": "string"
+      "type": "string",
+      "minLength": 1
     },
     "disconfirming_result": {
-      "type": "string"
+      "type": "string",
+      "minLength": 1
     },
     "sampling_instruction": {
       "type": "string"
     },
     "priority_rationale": {
-      "type": "string"
+      "type": "string",
+      "minLength": 1
     },
     "status": {
       "enum": [
