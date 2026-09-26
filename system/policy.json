@@ -37,7 +37,8 @@
   "working_set_limits": {
     "evidence_packets": 100,
     "curated_words": 80000,
-    "evidence_packet_excerpts": 12
+    "evidence_packet_excerpts": 12,
+    "explore_handoff_words": 2500
   },
   "protected_framework_paths": [
     "AGENTS.md",
@@ -65,5 +66,6 @@
     "falsification",
     "archive"
   ],
-  "framework_change_label": "framework-change"
+  "framework_change_label": "framework-change",
+  "deployment_mode": "public_framework"
 }
