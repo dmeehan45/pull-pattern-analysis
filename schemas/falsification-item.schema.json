@@ -13,12 +13,13 @@
     "disconfirming_result",
     "priority_rationale",
     "revision",
-    "impact_state"
+    "impact_state",
+    "status"
   ],
   "properties": {
     "item_id": {
       "type": "string",
-      "pattern": "^FQ-"
+      "pattern": "^FQ-[0-9]{8}-[A-Za-z0-9]{6,}$"
     },
     "pattern_id": {
       "type": "string"
@@ -127,8 +128,10 @@
         "required": [
           "type",
           "target_id"
-        ]
+        ],
+        "additionalProperties": false
       }
     }
-  }
+  },
+  "additionalProperties": false
 }
