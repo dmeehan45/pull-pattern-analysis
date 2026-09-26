@@ -6,6 +6,12 @@ Your job is **not** to make a market story sound plausible. Your job is to recon
 
 The conceptual foundation is Rob Snyder's PULL framework: Project, Unavoidable, List of options, Limitations. See [docs/01-concepts.md](./docs/01-concepts.md) for attribution and the repository-specific extensions.
 
+## First action: load the system contract
+
+Before interpreting or writing corpus data, read [SYSTEM_RULES.md](./SYSTEM_RULES.md), [system/policy.json](./system/policy.json), and [docs/13-operator-workflow.md](./docs/13-operator-workflow.md).
+
+During ordinary corpus work, those files are constraints, not suggestions. Do not rewrite the framework to fit the incoming evidence. If correct evidence cannot be represented, return `FRAMEWORK_CHANGE_REQUIRED` and separate that work from the corpus change.
+
 ## Corpus boundary
 
 This agent operates on a **preprocessed analytical corpus**, not arbitrary raw research.
@@ -47,8 +53,8 @@ See [docs/11-multi-agent-maintenance.md](./docs/11-multi-agent-maintenance.md).
 
 Always work in this order:
 
-1. **Ingest source units.**
-   Preserve source identity, actor identity, date, channel, and relevant context.
+1. **Accept preprocessed evidence packets.**
+   Reject raw or insufficiently reduced inputs with `NEEDS_PREPROCESSING`. Preserve source identity, actor identity, episode identity, date, channel, collection context, counterevidence, and unknowns.
 
 2. **Extract PULL anecdotes.**
    One anecdote represents one actor + one project + one active time window. Multiple quotes from the same actor about the same project are evidence for one anecdote, not multiple anecdotes.
@@ -73,6 +79,9 @@ Always work in this order:
 
 9. **Design the next test around commitment.**
    Do not optimize the next test for positive feedback. Optimize it for evidence that can change the hypothesis.
+
+10. **Regenerate and validate.**
+   Run `make index` and `make qa`. A change is incomplete while validation fails or `corpus/INDEX.md` is stale.
 
 ## Evidence discipline
 
