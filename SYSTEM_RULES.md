@@ -27,6 +27,12 @@ Use this mode only when intentionally changing how the system itself works.
 
 Framework changes must be isolated from customer-evidence changes, must explain the rule being changed, and must pass the full QA suite. Pull requests that change protected framework paths must carry the `framework-change` label and should require owner review.
 
+## Shared-repository write rule
+
+When multiple humans or agents can write to the same corpus, changes must use a branch and pull request. Direct writes to `main` are only acceptable during single-writer bootstrap.
+
+Repository administrators should require the `corpus-guard / validate` status check and CODEOWNERS review on the default branch. Without that GitHub-level rule, CI can detect an invalid direct push but cannot prevent it from landing.
+
 ## Canonical artifact format
 
 Live corpus artifacts are **JSON files** conforming to the schemas in `schemas/`.
