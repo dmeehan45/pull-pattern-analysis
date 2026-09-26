@@ -1,0 +1,55 @@
+{
+  "anecdote_id": "PA-20260926-a1b2c3",
+  "actor_id": "actor-example",
+  "episode_id": "episode-example",
+  "source_ids": [
+    "EV-20260926-a1b2c3"
+  ],
+  "observed_at": "2026-09-26",
+  "collection_context": "Example only.",
+  "selected_for_positive_signal": false,
+  "actor_state": "Relevant state of the actor when PULL appears.",
+  "project": "Product-neutral outcome the actor is trying to accomplish.",
+  "forcing_condition": "Condition making the Project difficult to defer.",
+  "time_boundary": "Example time boundary",
+  "delay_consequence": "What happens if the actor waits.",
+  "existing_commitment": [
+    "Scarce resource already committed."
+  ],
+  "current_options": [
+    {
+      "option": "Current workaround",
+      "status": "used",
+      "limitations": [
+        "Why it becomes inadequate in this window."
+      ]
+    }
+  ],
+  "transaction_path": {
+    "approver": null,
+    "resource_source": null,
+    "approval_steps": [],
+    "blockers": []
+  },
+  "acceptance_boundary": [
+    "What a viable new option must make true."
+  ],
+  "observable_next_commitment": "Specific buying-shaped action expected next if PULL persists.",
+  "expected_by": null,
+  "counterevidence": [],
+  "unknowns": [],
+  "evidence_classification": {
+    "project": "reported",
+    "forcing_condition": "reported",
+    "existing_commitment": "observed",
+    "observable_next_commitment": "inferred"
+  },
+  "revision": 1,
+  "created_at": "2026-09-26",
+  "updated_at": "2026-09-26",
+  "updated_by": "agent-or-human",
+  "supersedes": null,
+  "impact_state": "current",
+  "relations": [],
+  "status": "active"
+}
