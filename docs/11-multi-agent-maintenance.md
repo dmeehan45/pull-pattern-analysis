@@ -214,3 +214,17 @@ At reasonable intervals, run a corpus hygiene pass that checks:
 - artifacts no longer relevant to the active exploration area.
 
 Hygiene should make the active corpus smaller and clearer, not merely produce another report.
+
+
+## Schema evolution
+
+Every canonical artifact carries a `schema_version`.
+
+A framework change that alters the meaning or required shape of an artifact must:
+
+1. change the relevant schema version intentionally;
+2. provide a migration path for existing active artifacts;
+3. update templates, tests, validators, and documentation in the same framework change;
+4. never reinterpret old fields silently.
+
+Do not bump an artifact revision to disguise a schema migration. `revision` describes the history of that analytical object; `schema_version` describes the representation contract.
