@@ -217,6 +217,33 @@ def main():
             else:
                 report.error("E017", f"duplicate source fingerprint {fp!r}: {ids}")
 
+    # Deployment privacy boundary.
+    if policy.get("deployment_mode") == "public_framework":
+        for ev_id, ev in records_by_kind["evidence"].items():
+            if ev.get("privacy_state") not in {"public_safe", "redacted"}:
+                report.error("E027", f"{ev_id} privacy_state={ev.get('privacy_state')!r} is not allowed in public_framework mode")
+
+    # Explore handoffs are deliberately compact and downstream of a DH.
+    handoff_dir = root / "handoffs/explore"
+    if handoff_dir.exists():
+        for p in handoff_dir.rglob("*"):
+            if p.is_dir() or p.name == "README.md":
+                continue
+            if p.suffix != ".md":
+                report.error("E028", f"Explore handoff must be Markdown: {p.relative_to(root)}")
+                continue
+            text_value = p.read_text(encoding="utf-8")
+            count = words(text_value)
+            max_words = policy["working_set_limits"].get("explore_handoff_words", 2500)
+            if count > max_words:
+                report.error("E029", f"{p.relative_to(root)} has ~{count} words; Explore handoff limit is {max_words}")
+            dh_refs = set(re.findall(r"DH-[0-9]{8}-[A-Za-z0-9]{6,}", text_value))
+            if not dh_refs:
+                report.error("E030", f"{p.relative_to(root)} must reference at least one demand hypothesis ID")
+            for dh_ref in dh_refs:
+                if dh_ref not in records:
+                    report.error("E031", f"{p.relative_to(root)} references missing demand hypothesis {dh_ref}")
+
     def require_ref(owner_id, target_id, expected_prefix, field):
         if not target_id:
             return
@@ -247,8 +274,8 @@ def main():
                 for target in obj.get("derived_from_pattern_ids", []):
                     require_ref(artifact_id, target, "PP-", "derived_from_pattern_ids")
                     pattern = records_by_kind["pattern"].get(target)
-                    if pattern and obj.get("status") == "active" and pattern.get("state") != "supported":
-                        report.error("E021", f"active {artifact_id} derives from non-supported pattern {target} ({pattern.get('state')})")
+                    if pattern and obj.get("status") in {"candidate", "active"} and pattern.get("state") != "supported":
+                        report.error("E021", f"{obj.get('status')} {artifact_id} derives from non-supported pattern {target} ({pattern.get('state')})")
             elif kind == "falsification":
                 target = obj.get("pattern_id")
                 require_ref(artifact_id, target, "PP-", "pattern_id")
