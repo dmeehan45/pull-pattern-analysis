@@ -52,6 +52,31 @@ A useful output is often:
 
 > We do not yet have enough evidence to claim a pattern. Here are the highest-information questions, cases, and observations that would distinguish the competing explanations.
 
+## Corpus boundary
+
+This is a **curated analytical sidecar**, not a research warehouse.
+
+Raw recordings, long transcripts, CRM histories, and organizational knowledge should stay in their systems of record. Before customer material enters this repo, it should be reduced into a compact **evidence packet** with provenance, high-signal excerpts, observed actions, timing, resource movement, options, transaction evidence, counterevidence, and explicit unknowns.
+
+Operational soft limits for one active analytical partition:
+
+- evidence packet: target <= 800 words;
+- excerpts: target <= 12 short excerpts per packet;
+- active partition: target <= 100 evidence packets or roughly <= 80,000 words of curated source material;
+- raw transcripts: zero by default.
+
+When the working set exceeds those limits, partition or archive it. Do not turn the repo into a larger data lake.
+
+See [docs/09-corpus-architecture.md](./docs/09-corpus-architecture.md) and [docs/10-ingestion-preprocessing.md](./docs/10-ingestion-preprocessing.md).
+
+## Sidecar to product Explore
+
+This framework is intended to sit next to the **Explore** phase of an agentic/spec-driven product workflow.
+
+OpenSpec's current workflow uses `/opsx:explore` to map a problem and shape a plan before a proposal/specification is created. This repo supplies a structured demand-side input to that exploration without trying to own the proposal, requirements, design, or implementation process.
+
+Use [docs/12-openspec-explore-handoff.md](./docs/12-openspec-explore-handoff.md) to produce a compact handoff when the team wants to carry current demand evidence into product exploration.
+
 ## Intellectual lineage
 
 The foundation is Rob Snyder's PULL framework from *The Power of PULL* (Basic Venture, 2026). Snyder's framework describes PULL using four elements:
@@ -121,6 +146,11 @@ The output is not merely "more research questions." It is a **falsification queu
 - [docs/06-falsification-protocol.md](./docs/06-falsification-protocol.md) — challenge loop and bias controls
 - [docs/07-question-generation.md](./docs/07-question-generation.md) — high-information follow-up questions and data requests
 - [docs/08-evidence-model.md](./docs/08-evidence-model.md) — evidence states, provenance, and independence
+- [docs/09-corpus-architecture.md](./docs/09-corpus-architecture.md) — working-set limits and corpus layers
+- [docs/10-ingestion-preprocessing.md](./docs/10-ingestion-preprocessing.md) — minimum preprocessing gate
+- [docs/11-multi-agent-maintenance.md](./docs/11-multi-agent-maintenance.md) — concurrency, revisions, and conflict propagation
+- [docs/12-openspec-explore-handoff.md](./docs/12-openspec-explore-handoff.md) — demand-to-Explore handoff
+- [templates/](./templates/) — evidence packet and Explore handoff templates
 - [schemas/](./schemas/) — machine-readable artifacts
 
 ## Governing principle
